@@ -16,11 +16,13 @@ function App() {
         </form>
       </ul>
     )
-  })
+  });
   function handleClick(index) {
     const reviewForm = document.getElementById(index);
+    review.splice(index, 1);
     reviewForm.remove();
-  }
+    console.log(review);
+  };
   useEffect(() => {
     fetch('/profile_editor', {
       method: 'POST', headers: {
@@ -40,14 +42,13 @@ function App() {
       },
       body: JSON.stringify(review)
     })
-  }
-  console.log(review);
+  };
   return (
     <div className="App">
       {listReviews}
-      <input type="submit" id="hover" value="Save Changes" onClick={() => saveChanges()}></input>
+      <a href="/edit_profile"><input type="submit" id="hover" value="Save Changes" onClick={() => saveChanges()}></input></a>
     </div>
   );
-}
+};
 
 export default App;
