@@ -1,23 +1,51 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect, useRef } from 'react';
 
 function App() {
+  const [review, setReview] = useState([]);
+  const form = useRef(null);
+  const listReviews = review.map((rev, index) => {
+    return (
+      <ul>
+        <form id={index}>
+          <label for="movieID">Movie ID:</label>
+          <input type="text" id="movieID" name="movieID" value={rev[0]} readonly></input>
+          <input type="number" id="rating" name="rating" min="0" max="10" placeholder={rev[1]} required></input>
+          <input type="text" placeholder={rev[2]} name="comment" required></input>
+          <input type="button" id="hover" onClick={() => handleClick(index)} value="Delete"></input>
+        </form>
+      </ul>
+    )
+  })
+  function handleClick(index) {
+    const reviewForm = document.getElementById(index);
+    reviewForm.remove();
+  }
+  useEffect(() => {
+    fetch('/profile_editor', {
+      method: 'POST', headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => { return response.json() })
+      .then(data => {
+        setReview(data.review)
+        console.log(data)
+      })
+  }, []);
+  function saveChanges() {
+    fetch('/save_changes', {
+      method: 'POST', headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(review)
+    })
+  }
+  console.log(review);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {listReviews}
+      <input type="submit" id="hover" value="Save Changes" onClick={() => saveChanges()}></input>
     </div>
   );
 }

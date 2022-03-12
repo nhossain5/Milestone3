@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-color: #add8e6;
+  color: #367588;
+  font-family: 'Courier', monospace;
+  text-align: center;
+}
+#hover{
+  background-color: #fff44f;
+  color: #1c2841;
+}
+#hover:hover{
+  background-color: #1c2841;
+  color: #fff44f;
+}
+h4 {
+  display: inline;
+}

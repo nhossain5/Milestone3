@@ -1,6 +1,8 @@
 import os
 import flask
+import random
 from flask import Flask, render_template, redirect, url_for, flash, request
+from flask_cors import CORS
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import (
@@ -14,6 +16,7 @@ from flask_login import (
 from tmdb_and_wiki import get_movie_data
 
 app = flask.Flask(__name__)
+CORS(app)
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
 uri = os.getenv("DATABASE_URL")
 if uri and uri.startswith("postgres://"):
@@ -259,11 +262,41 @@ bp = flask.Blueprint(
 )
 
 # route for serving React page
-@bp.route("/")
+@bp.route("/edit_profile")
+@login_required
 def index():
     # NB: DO NOT add an "index.html" file in your normal templates folder
     # Flask will stop serving this React page correctly
     return flask.render_template("index.html")
+
+
+@bp.route("/profile_editor", methods=["POST"])
+@login_required
+def profile_editor():
+    # random_int = random.randint(0, 2)
+    # fun_facts = ["Roses are Red", "Violets are Blue", "Sugar is Sweet"]
+    # random_fun_fact = fun_facts[random_int]
+    # funfact = flask.jsonify({"fun_facts": random_fun_fact})
+    your_comments = UserReview.query.filter_by(email=current_user.email).all()
+    num_comments = len(your_comments)
+    # random_int = random.randint(0, num_comments - 1)
+    return flask.jsonify(
+        review=[
+            (
+                your_comments[i].movieID,
+                your_comments[i].rating,
+                your_comments[i].comment,
+            )
+            for i in range(num_comments)
+        ]
+    )
+
+
+@bp.route("/save_changes", methods=["POST"])
+@login_required
+def save_changes():
+    review_data = flask.request.get_json()
+    return ("Changes Saved", print(review_data))
 
 
 app.register_blueprint(bp)

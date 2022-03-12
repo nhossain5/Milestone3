@@ -3,6 +3,7 @@
 {% block content %}
 <h1 class="title">
     Welcome, {{ name }}!
+    <a href="{{ url_for('bp.index') }}"><input type="submit" id="hover" value="Edit Profile" /></a>
 </h1>
 {% for i in range(num_comments) %}
 <h4>Movie ID:<a href="https://www.themoviedb.org/movie/{{your_comments[i].movieID}}" target="_blank"><input
