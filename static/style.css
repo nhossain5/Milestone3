@@ -3,12 +3,12 @@ body {
     color: #367588;
     font-family: 'Courier', monospace;
     text-align: center;
-}
-#hover{
+  }
+  #hover{
     background-color: #fff44f;
     color: #1c2841;
-}
-#hover:hover{
+  }
+  #hover:hover{
     background-color: #1c2841;
     color: #fff44f;
-}
+  }

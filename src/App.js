@@ -10,18 +10,21 @@ function App() {
         <form id={index}>
           <label for="movieID">Movie ID:</label>
           <input type="text" id="movieID" name="movieID" value={rev[0]} readonly></input>
-          <input type="number" id="rating" name="rating" min="0" max="10" placeholder={rev[1]} required></input>
-          <input type="text" placeholder={rev[2]} name="comment" required></input>
+          <input type="number" id="rating" name="rating" min="0" max="10" placeholder={rev[1]} defaultValue={rev[1]} required></input>
+          <input type="text" placeholder={rev[2]} defaultValue={rev[2]} name="comment" required></input>
           <input type="button" id="hover" onClick={() => handleClick(index)} value="Delete"></input>
         </form>
       </ul>
     )
   });
+  const indexes = [];
   function handleClick(index) {
     const reviewForm = document.getElementById(index);
-    review.splice(index, 1);
+    indexes.push(index);
+    indexes.sort(function (a, b) { return b - a; })
     reviewForm.remove();
     console.log(review);
+    console.log(indexes);
   };
   useEffect(() => {
     fetch('/profile_editor', {
@@ -36,11 +39,12 @@ function App() {
       })
   }, []);
   function saveChanges() {
+    alert("Your changes were successfully saved")
     fetch('/save_changes', {
       method: 'POST', headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(review)
+      body: JSON.stringify(indexes)
     })
   };
   return (

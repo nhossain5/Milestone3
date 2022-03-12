@@ -1,7 +1,8 @@
+# pylint: disable=no-member
+# pylint: disable=missing-module-docstring
 import os
 import flask
-import random
-from flask import Flask, render_template, redirect, url_for, flash, request
+from flask import render_template, redirect, url_for, flash, request
 from flask_cors import CORS
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
@@ -286,6 +287,7 @@ def profile_editor():
                 your_comments[i].movieID,
                 your_comments[i].rating,
                 your_comments[i].comment,
+                your_comments[i].id,
             )
             for i in range(num_comments)
         ]
@@ -295,7 +297,14 @@ def profile_editor():
 @bp.route("/save_changes", methods=["POST"])
 @login_required
 def save_changes():
+    your_comments = UserReview.query.filter_by(email=current_user.email).all()
+    num_comments = len(your_comments)
     review_data = flask.request.get_json()
+    for i in range(num_comments):
+        for j in review_data:
+            if i == j:
+                db.session.delete(your_comments[i])
+                db.session.commit()
     return ("Changes Saved", print(review_data))
 
 
