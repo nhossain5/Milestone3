@@ -1,70 +1,55 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Here is the Heroku link:
+## https://frozen-hamlet-09935.herokuapp.com/
+# If you want to run this locally without Heroku:
+### Install the packages from requirements.txt in the terminal
+### Obtain an API KEY from The Movie DB
+### In your main directory do the following:
+```
+git init
+heroku create
+heroku addons:create heroku-postgresql:hobby-dev
+heroku config
+```
+### Copy and paste the DATABASE_URL somewhere
+### Make sure there is a 'ql' (without apostrophes) after postgres
+### Create a .env file in the main directory
+### Inside the .env file, put:
+```
+export TMDB_KEY='your_API_key'
+export DATABASE_URL='your_DATABASE_URL'
+```
+### Replace your_API_key with the API KEY you have obtained from The Movie DB
+### Make sure to keep the apostrophes
+### After saving, run the main.py file in the terminal
+### Follow the HTML link by holding control and clicking on the link in the terminal
+### You should see a webpage that asks for you to login
+### Create an account in the Sign Up page
+### After signing up, it will redirect you to the Login page again
+### Then, login with the sign up information
+### Now, you should see the home page with a random popular movie
+### It should have the title, poster, tagline, genre, and Wikipedia URL
+### At the bottom of the page, you can comment and give a rating 
+### You can also look at reviews made by others
+### At the top of the page, you can click Home or Profile
+### Home takes you to the regular webpage that has a random popular movie
+### Profile takes you to a webpage that has all your comments
+### With the comments, it has a movie ID
+### You can click on this movie ID to go to the TMDB page for that specific movie
+### Lastly, if you refresh the home page, there should be a different random popular movie
+### However, the size of the list of popular movies is 20,
+### so there is a chance for the same movie to appear back-to-back
+# How implementing my project differed from my expectations:
+### I thought combining the flask-login components of the project
+### with the other components of the project was going to be simpler
+### I ended up using most of the information from the lengthy example
+### to help me make the login session
+# Technical issues and how I solved them:
+### 1) I had to delete a couple whole projects
+### because I did not know how to combine the features together
+### I solved this by working slowly and going through the lengthy example thoroughly
+### to make sure I was not just copy-pasting and knew what I was coding
+### 2) While I was working with the databases, when I was making them
+### or resetting them, I had to wait a while for the local or heroku pages to start up again
+### I solved this by working diligently, if I was stuck on a problem, I would take a break,
+### jog around, or do some activity; then I came back refreshed and tried finding
+### the solutions again in stackoverflow or they were simple problems that went over my head
