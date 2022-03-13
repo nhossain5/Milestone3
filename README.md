@@ -1,7 +1,4 @@
-# Here is the Heroku link:
-## https://frozen-hamlet-09935.herokuapp.com/
-# If you want to run this locally without Heroku:
-### Install the packages from requirements.txt in the terminal
+# How to get started:
 ### Obtain an API KEY from The Movie DB
 ### In your main directory do the following:
 ```

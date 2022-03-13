@@ -49,7 +49,7 @@ function App() {
   return (
     <div className="App">
       {listReviews}
-      <a href="/edit_profile"><input type="submit" id="hover" value="Save Changes" onClick={() => saveChanges()}></input></a>
+      <a href="/"><input type="submit" id="hover" value="Save Changes" onClick={() => saveChanges()}></input></a>
     </div>
   );
 };
