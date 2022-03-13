@@ -35,6 +35,9 @@ export DATABASE_URL='your_DATABASE_URL'
 ### Profile takes you to a webpage that has all your comments
 ### With the comments, it has a movie ID
 ### You can click on this movie ID to go to the TMDB page for that specific movie
+### You can also edit your reviews by clicking on the Edit Profile button, which is on the Profile Page
+### On the Edit Profile Page, you can delete reviews that you no longer seem fit
+### Editing Ratings and Comments can also be implemented, but I could not reach that point
 ### Lastly, if you refresh the home page, there should be a different random popular movie
 ### However, the size of the list of popular movies is 20,
 ### so there is a chance for the same movie to appear back-to-back
