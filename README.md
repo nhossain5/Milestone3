@@ -38,18 +38,22 @@ export DATABASE_URL='your_DATABASE_URL'
 ### Lastly, if you refresh the home page, there should be a different random popular movie
 ### However, the size of the list of popular movies is 20,
 ### so there is a chance for the same movie to appear back-to-back
-# How implementing my project differed from my expectations:
-### I thought combining the flask-login components of the project
-### with the other components of the project was going to be simpler
-### I ended up using most of the information from the lengthy example
-### to help me make the login session
 # Technical issues and how I solved them:
-### 1) I had to delete a couple whole projects
-### because I did not know how to combine the features together
-### I solved this by working slowly and going through the lengthy example thoroughly
-### to make sure I was not just copy-pasting and knew what I was coding
-### 2) While I was working with the databases, when I was making them
-### or resetting them, I had to wait a while for the local or heroku pages to start up again
-### I solved this by working diligently, if I was stuck on a problem, I would take a break,
-### jog around, or do some activity; then I came back refreshed and tried finding
-### the solutions again in stackoverflow or they were simple problems that went over my head
+### 1)A technical issue was that I could not properly delete the reviews that I wanted to delete in the data
+### I solved this by adding the indexes of the reviews I wanted to remove into an array, and then removing them from highest to lowest number
+### 2)Another technical issue that I faced was that I could not properly use ESLint
+### I solved this by deleting the node_modules and static folders and remaking them because I was messing with them for no reason; all I had to do was enable ESLint in the VSCode Settings
+### 3)One more technical issue I had was that my python3 app.py would not always work
+### I solved this by using:
+'''
+ps -fA | grep python'
+'''
+### in the terminal and then using:
+'''
+kill -9 pid
+'''
+### in the terminal as well. "pid" is the process ID associated with app.py
+# Hardest Part of the Project for me:
+### was that it would take a while for me to get used to frameworks that I have never worked with before as well as combining the features of multiple frameworks at once
+# Most Useful thing that I learned from the Project:
+### was that the rubber duck method actually works. Sometimes writing or thinking about code, which were simple and embarrassing problems most of the time, would go over my head. What helped me the most was taking a break and then going back to the code with a refreshed mindset.
