@@ -1,9 +1,8 @@
 import './App.css';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {
   const [review, setReview] = useState([]);
-  const form = useRef(null);
   const listReviews = review.map((rev, index) => {
     return (
       <ul>

@@ -266,6 +266,9 @@ bp = flask.Blueprint(
 @bp.route("/edit_profile")
 @login_required
 def index():
+    """
+    This method connects the Flask app with the React page
+    """
     # NB: DO NOT add an "index.html" file in your normal templates folder
     # Flask will stop serving this React page correctly
     return flask.render_template("index.html")
@@ -274,13 +277,12 @@ def index():
 @bp.route("/profile_editor", methods=["POST"])
 @login_required
 def profile_editor():
-    # random_int = random.randint(0, 2)
-    # fun_facts = ["Roses are Red", "Violets are Blue", "Sugar is Sweet"]
-    # random_fun_fact = fun_facts[random_int]
-    # funfact = flask.jsonify({"fun_facts": random_fun_fact})
+    """
+    This method gives the reviews of the User from the
+    Flask app to the React page
+    """
     your_comments = UserReview.query.filter_by(email=current_user.email).all()
     num_comments = len(your_comments)
-    # random_int = random.randint(0, num_comments - 1)
     return flask.jsonify(
         review=[
             (
@@ -297,6 +299,11 @@ def profile_editor():
 @bp.route("/save_changes", methods=["POST"])
 @login_required
 def save_changes():
+    """
+    This method gets the updated reviews of the user from
+    the React page and deletes comments deleted by the user
+    in the Database
+    """
     your_comments = UserReview.query.filter_by(email=current_user.email).all()
     num_comments = len(your_comments)
     review_data = flask.request.get_json()
