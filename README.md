@@ -48,13 +48,13 @@ export DATABASE_URL='your_DATABASE_URL'
 ### I solved this by deleting the node_modules and static folders and remaking them because I was messing with them for no reason; all I had to do was enable ESLint in the VSCode Settings
 ### 3)One more technical issue I had was that my python3 app.py would not always work
 ### I solved this by using:
-'''
+```
 ps -fA | grep python'
-'''
+```
 ### in the terminal and then using:
-'''
+```
 kill -9 pid
-'''
+```
 ### in the terminal as well. "pid" is the process ID associated with app.py
 # Hardest Part of the Project for me:
 ### was that it would take a while for me to get used to frameworks that I have never worked with before as well as combining the features of multiple frameworks at once
