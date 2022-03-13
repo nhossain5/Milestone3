@@ -49,7 +49,7 @@ export DATABASE_URL='your_DATABASE_URL'
 ### 3)One more technical issue I had was that my python3 app.py would not always work
 ### I solved this by using:
 ```
-ps -fA | grep python'
+ps -fA | grep python
 ```
 ### in the terminal and then using:
 ```
@@ -57,6 +57,6 @@ kill -9 pid
 ```
 ### in the terminal as well. "pid" is the process ID associated with app.py
 # Hardest Part of the Project for me:
-### was that it would take a while for me to get used to frameworks that I have never worked with before as well as combining the features of multiple frameworks at once
+### was that it would take a while for me to get used to frameworks that I have never worked with before as well as combining the features of multiple frameworks at once.
 # Most Useful thing that I learned from the Project:
 ### was that the rubber duck method actually works. Sometimes writing or thinking about code, which were simple and embarrassing problems most of the time, would go over my head. What helped me the most was taking a break and then going back to the code with a refreshed mindset.
